@@ -4,7 +4,7 @@
   buildPythonPackage,
   setuptools-scm,
   lxml,
-  wcwidth,
+  cwcwidth,
   pytestCheckHook,
   iniparse,
   vobject,
@@ -35,7 +35,7 @@ buildPythonPackage rec {
 
   dependencies = [
     lxml
-    wcwidth
+    cwcwidth
   ];
 
   nativeCheckInputs = [
