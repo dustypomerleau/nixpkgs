@@ -33,11 +33,6 @@ buildPythonPackage rec {
     hash = "sha256-dha+rPBkcEyqQ7EfnFg81GDq0Lc2uoQ3meCTjdajaBM=";
   };
 
-  postPatch = ''
-    substituteInPlace setup.py \
-      --replace-fail "decorator>=4.0.2,<5.0" "decorator>=4.0.2,<6.0"
-  '';
-
   build-system = [ setuptools ];
 
   dependencies = [
