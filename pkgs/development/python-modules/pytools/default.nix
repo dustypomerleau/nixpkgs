@@ -2,11 +2,11 @@
   lib,
   buildPythonPackage,
   fetchPypi,
+  hatchling,
   numpy,
   platformdirs,
   pytestCheckHook,
   pythonOlder,
-  setuptools,
   typing-extensions,
 }:
 
@@ -22,7 +22,7 @@ buildPythonPackage rec {
     hash = "sha256-gPjj8/d1bQyb1XmHnDUo1U5CKEO1CiiKnDtro+Dqwos=";
   };
 
-  build-system = [ setuptools ];
+  build-system = [ hatchling ];
 
   dependencies = [
     platformdirs
