@@ -84,6 +84,7 @@ buildPythonPackage rec {
     # due to circular import
     "tests/integration_tests/test_client.py"
     "tests/integration_tests/test_prompts.py"
+    "tests/unit_tests/evaluation/test_runner.py"
     "tests/unit_tests/test_client.py"
     # Tests require a Langsmith API key
     "tests/evaluation/test_evaluation.py"
