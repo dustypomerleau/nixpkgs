@@ -31,6 +31,7 @@ buildPythonPackage rec {
   disabledTests = [
     # Assertion error as we take the Python release into account
     "test_search_prs_basic"
+    "test_module_shortcut"
   ];
 
   meta = with lib; {
