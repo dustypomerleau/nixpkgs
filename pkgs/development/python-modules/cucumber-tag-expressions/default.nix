@@ -6,6 +6,7 @@
   pytest-html,
   pyyaml,
   setuptools,
+  setuptools-scm,
 }:
 
 buildPythonPackage rec {
@@ -22,7 +23,10 @@ buildPythonPackage rec {
 
   sourceRoot = "${src.name}/python";
 
-  build-system = [ setuptools ];
+  build-system = [
+    setuptools
+    setuptools-scm
+  ];
 
   nativeCheckInputs = [
     pytestCheckHook
