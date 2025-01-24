@@ -39,7 +39,7 @@ buildPythonPackage rec {
 
   postPatch = ''
     substituteInPlace pyproject.toml \
-      --replace-fail '"setuptools-git-versioning<2"' "" \
+      --replace-fail '"setuptools-git-versioning>=2.0,<3"' "" \
       --replace-fail 'dynamic = ["version"]' 'version = "${version}"'
   '';
 
