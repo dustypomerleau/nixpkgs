@@ -54,11 +54,19 @@ stdenv.mkDerivation (finalAttrs: {
 
   doCheck = true;
 
-  # Tests take quite a long time
-  # Using pytest-xdist, we launch multiple workers
-  # Restrict to max 6 to avoid having a large number of idlers
   preCheck = ''
+    # Tests take quite a long time
+    # Using pytest-xdist, we launch multiple workers
+    # Restrict to max 6 to avoid having a large number of idlers
     mesonCheckFlagsArray+=(--test-args "--numprocesses=auto --maxprocesses=6")
+  '';
+
+  checkPhase = ''
+    runHook preCheck
+    # Perform ad-hoc signing of the executable to allow running tests on darwin.
+    ${lib.optionalString stdenv.hostPlatform.isDarwin "find . -type f -name unpaper -perm -u+x -exec /usr/bin/codesign -s - {} +"}
+    mesonCheckPhase
+    runHook postCheck
   '';
 
   passthru.tests = {
